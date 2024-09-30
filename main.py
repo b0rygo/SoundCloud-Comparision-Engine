@@ -7,6 +7,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import difflib
+import sys
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 def utwory_z_folderu(dis): #FUNCTION THAT SHOWS YOUR SONGS FROM FOLDER
     try:
@@ -69,3 +72,11 @@ if niepasujace_piosenki:
         print(f"{i}. {song}")
 else:
     print("Nie znaleziono brakujących piosenek.")
+
+def window():
+    app = QApplication(sys.argv)
+    win = QMainWindow()
+    win.setGeometry(1200,300,500,500)
+    win.setWindowTitle("SoundCloud-Comparision-Engine")
+    win.show()
+    sys.exit(app.exec_())
